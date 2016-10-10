@@ -7,31 +7,32 @@
 <body>
 
 <div id="gameboard">
-	<div id="Score">
+	<div id="score"></div>
 	<div id="dice row">
 		<div>
-			<span class="dice" id="die1"></span>
-			<button onclick="">Hold</button>
+			<span class="dice" id="dice1"></span>
+			<button id="hold1" onclick="hold('dice1', 'hold1')">Hold</button>
 		</div>
 		<div>
-			<span class="dice" id="die2"></span>
-			<button onclick="">Hold</button>
+			<span class="dice" id="dice2"></span>
+			<button id="hold2" onclick="hold('dice2', 'hold2')">Hold</button>
 		</div>
 		<div>
-			<span class="dice" id="die3"></span>
-			<button onclick="">Hold</button>
+			<span class="dice" id="dice3"></span>
+			<button id="hold3" onclick="hold('dice3', 'hold3')">Hold</button>
 		</div>
 		<div>
-			<span class="dice" id="die4"></span>
-			<button onclick="">Hold</button>
+			<span class="dice" id="dice4"></span>
+			<button id="hold4"onclick="hold('dice4', 'hold4')">Hold</button>
 		</div>
 		<div>
-			<span class="dice" id="die5"></span>
-			<button onclick="">Hold</button>
+			<span class="dice" id="dice5"></span>
+			<button id="hold5" onclick="hold('dice5', 'hold5')">Hold</button>
 		</div>
 	</div>
-	<button onclick="">ROLL!</button>
+	<button onclick="roll()">ROLL!</button>
 	<div id="ScorePanel">
+		<div onclick="scorePoints('yahtzee')">Yatzee</div>
 	</div>
 </div>
 </body>
