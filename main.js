@@ -54,11 +54,11 @@ function get_sum(total, num){
 
 // takes the value of each dice and puts it into an array we can manipulate
 map_dice = function(){
-  var dice_array = [2,3,4,4,5]
+  var dice_array = []
 
-  // for(di in diceJar){
-  //   dice_array.push(diceJar[di].value)
-  // }
+  for(di in diceJar){
+    dice_array.push(diceJar[di].value)
+  }
 
   return dice_array
 }
