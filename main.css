@@ -1,0 +1,61 @@
+#gameboard {
+  font-family: Helvetica, Arial, sans-serif;
+  margin-top: 5%;
+}
+
+.dice {
+  text-align: center;
+  justify-content: space-between;
+  height: 100px;
+  width: 100px;
+  padding: 1em;
+  margin: auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size:80px;
+}
+
+button {
+  flex-grow: 1;
+  align-content: center;
+  background-color: rgb(82, 186, 179);
+  border-radius: 6px;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  text-transform: uppercase;
+  width: 200px;
+  cursor: pointer;
+}
+
+#dice-row {
+  flex-grow: 1;
+  display: inline-flex;
+  margin: 5%;
+}
+
+#rollButton {
+  align-content: center;
+  flex-grow: 1;
+  justify-content: center;
+  width: 1000px;
+  margin: 2%;
+}
+
+#scorePanel {
+  border: 3px solid gray;
+  border-radius: 6px;
+  margin: 2%;
+}
+
+.scoreBtn {
+  flex-grow: 1;
+  align-content: center;
+  background-color: tomato;/*rgb(82, 186, 179);*/
+  border-radius: : none;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  text-transform: uppercase;
+  width: 200px;
+  cursor: pointer;
+}

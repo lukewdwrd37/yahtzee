@@ -49,12 +49,12 @@ var hold = function(diToHold, holdno) {
 
 // helps us get the sum of the dice
 function get_sum(total, num){
-  return total + num
+  return total + num;
 }
 
 // takes the value of each dice and puts it into an array we can manipulate
 map_dice = function(){
-  var dice_array = []
+  var dice_array = [];
 
   for(di in diceJar){
     dice_array.push(diceJar[di].value)
@@ -64,7 +64,7 @@ map_dice = function(){
 }
 
 // this method combines two functions, map_dice and sort
-release_the_orderer_of_the_dice = function(){
+release_the_order_of_the_dice = function(){
 
   // we need to move our dice values into a usuable array
   current_jar = map_dice()
@@ -73,7 +73,7 @@ release_the_orderer_of_the_dice = function(){
   // but doesnt hurt to do this anyway
   current_jar.sort(function(a, b){return a-b})
 
-  // we then return the the current jar variable to the function where it's called, this is abstraction
+  // we then return the the current_jar variable to the function where it's called, this is abstraction
   // we can use this to our benefit to make our functions universal and usuable in multiple places without repeating code
   return current_jar
 }
@@ -104,13 +104,13 @@ var scorePoints = function(scorename){
       // create a local variable that from helper method that gives us an ordered array of our dice
       ordered_dice = release_the_orderer_of_the_dice()
 
-      // So we know in a straight that all 5 dice have to be consecutive, whether that is 1,2,3,4,5 or 2,3,4,5,6. the roll must contain
-      // one of these sets of numbers in order to score the points.
+      // So we know in a straight that all 5 dice have to be consecutive, whether that is 1,2,3,4,5 or 2,3,4,5,6.
+      // the roll must contain one of these sets of numbers in order to score the points.
       // to do this we will loop through the ordered_dice array and see if the current di(iteration) + 1 is equal
       // to the next di in the array. If it's not we flip the test to false and break the loop because we know they failed the test for a straight
       // else we just continue through the loop until it's over
       for(var di = 0; di<ordered_dice.length; di++){
-        // we need to check for undefined here because, if 5 or six is the last number if we do +1 on it, it won't know what we're talking about
+        // we need to check for undefined here because, if 5 or six is the last number and we do +1 on it, it won't know what we're talking about
         if(ordered_dice[di+1] == undefined){
           break
         }
