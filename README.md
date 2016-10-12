@@ -1,5 +1,5 @@
-# yatzee
-Luke and Joel Create Yatzee
+# yahtzee
+Luke and Joel Create Yahtzee
 
 #Tasks
 
