@@ -64,7 +64,7 @@ map_dice = function(){
 }
 
 // this method combines two functions, map_dice and sort
-release_the_order_of_the_dice = function(){
+release_the_orderer_of_the_dice = function(){
 
   // we need to move our dice values into a usuable array
   current_jar = map_dice()
@@ -76,6 +76,24 @@ release_the_order_of_the_dice = function(){
   // we then return the the current_jar variable to the function where it's called, this is abstraction
   // we can use this to our benefit to make our functions universal and usuable in multiple places without repeating code
   return current_jar
+}
+
+// this method releases the keeper of the tallys and counts how many of each dice we have in our jar
+release_the_tallyman = function(){
+  current_jar = map_dice()
+  tallymans_tallyboard = {}
+
+  // create a dictionary count of the dice values
+  for(var di=0; di<current_jar.length;di++){
+    if (tallymans_tallyboard.hasOwnProperty(current_jar[di])){
+      tallymans_tallyboard[current_jar[di]] += 1
+    }
+    else{
+      tallymans_tallyboard[current_jar[di]] = 1
+    }
+  }
+
+  return tallymans_tallyboard
 }
 
 
@@ -131,6 +149,29 @@ var scorePoints = function(scorename){
 
       // reset the dom score
       document.getElementById("score").innerHTML = current_score;
+
+      break;
+    case 'full_house':
+
+      // release the tallyman gives me an object that has the dice values as keys and a tally of how many of each i have
+      // dice keys lays out an array of key values
+      dice_dictionary = release_the_tallyman()
+      dice_keys_values_array = Object.keys(dice_dictionary).map(function(key) {
+        return dice_dictionary[key];
+      });
+
+      // To check a full house we need a pair and a triplet. But we don't know which order they will be in.
+      // so we write a check to see if either of the keys have 2 or 3 tallys
+      if(dice_keys_values_array[0] != 2 && dice_keys_values_array[1] != 3){
+        if(dice_keys_values_array[0] != 3 && dice_keys_values_array[1] != 2){
+          break
+        }
+      }
+
+      // reset the dom score
+      document.getElementById("score").innerHTML = current_score + 25;
+
+      break;
 
   }
 

@@ -7,7 +7,7 @@
 <body>
 
 <div id="gameboard">
-	<div id="score"></div>
+	<div id="score">0</div>
 	<div id="dice-row">
 		<div>
 			<span class="dice" id="dice1"></span>
@@ -33,6 +33,7 @@
 	<button id="rollButton" onclick="roll()">ROLL!</button>
 	<div id="scorePanel">
 		<button class="scoreBtn" onclick="scorePoints('lg_straight')">Lg. Straight</button>
+		<button class="scoreBtn" onclick="scorePoints('full_house')">Full House</button>
 	</div>
 </div>
 </body>
