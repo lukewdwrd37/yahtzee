@@ -1,6 +1,20 @@
+#score {
+  display: block;
+  border: 1px solid darkblue;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 2%;
+  height: 5%;
+  background-size: cover;
+  background-color: lightblue;
+}
+
+
 #gameboard {
+  box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
   margin-top: 5%;
+  flex-grow: 1;
 }
 
 .dice {
@@ -9,7 +23,7 @@
   height: 100px;
   width: 100px;
   padding: 1em;
-  margin: auto;
+  margin: inherit;
   border: 1px solid gray;
   border-radius: 10px;
   font-size:80px;
@@ -49,6 +63,7 @@ button {
 }
 
 .scoreBtn {
+  justify-content: space-around;
   flex-grow: 1;
   align-content: center;
   background-color: tomato;/*rgb(82, 186, 179);*/

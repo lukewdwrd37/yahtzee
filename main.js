@@ -8,7 +8,6 @@ var diceJar = {
 }
 
 
-
 //- Create a "roll" function, keeps track of roll count
 var rollCount = 0
 var roll = function() {
@@ -31,12 +30,14 @@ var roll = function() {
 var hold = function(diToHold, holdno) {
     diceJar[diToHold].rollable = !diceJar[diToHold].rollable;
     if (!diceJar[diToHold].rollable){
-      document.getElementById(holdno).innerHTML = "HELD";
+      document.getElementById(holdno).innerHTML = "*";
     }
     else{
       document.getElementById(holdno).innerHTML = "Hold";
     }
 }
+
+//var release = function()
 
 //
 //  #    # ###### #      #####  ###### #####     #    # ###### ##### #    #  ####  #####   ####
@@ -82,9 +83,11 @@ release_the_orderer_of_the_dice = function(){
 release_the_tallyman = function(){
   current_jar = map_dice()
   tallymans_tallyboard = {}
-
+  debugger
   // create a dictionary count of the dice values
   for(var di=0; di<current_jar.length;di++){
+    // tallymans_tallyboard['1']
+
     if (tallymans_tallyboard.hasOwnProperty(current_jar[di])){
       tallymans_tallyboard[current_jar[di]] += 1
     }
@@ -92,7 +95,7 @@ release_the_tallyman = function(){
       tallymans_tallyboard[current_jar[di]] = 1
     }
   }
-
+  debugger
   return tallymans_tallyboard
 }
 
@@ -112,7 +115,16 @@ var scorePoints = function(scorename){
 
   // we take in the type of points you want to score in the switch
   switch (scorename){
+    case 'yahtzee':
 
+      var theGrail = release_the_tallyman();
+      for(var i in theGrail) {
+        if (theGrail[i] == 5){
+          current_score += 50;
+          document.getElementById("score").innerHTML = current_score;
+        }
+      }
+      break
     // it matches to the lg straight, so it runs this block.
     case 'lg_straight':
 
@@ -157,9 +169,12 @@ var scorePoints = function(scorename){
       // dice keys lays out an array of key values
       dice_dictionary = release_the_tallyman()
       dice_keys_values_array = Object.keys(dice_dictionary).map(function(key) {
-        return dice_dictionary[key];
+        return dice_dictionary[key] ;
       });
 
+      if(dice_keys_values_array.length > 2){
+        break
+      }
       // To check a full house we need a pair and a triplet. But we don't know which order they will be in.
       // so we write a check to see if either of the keys have 2 or 3 tallys
       if(dice_keys_values_array[0] != 2 && dice_keys_values_array[1] != 3){
@@ -176,4 +191,12 @@ var scorePoints = function(scorename){
   }
 
 }
-// create
+/*
+       #       #       # ####### ####### #           #####  #     # ####### #       #        #####
+      #       #        # #     # #       #          #     # ##   ## #       #       #       #     #
+     #       #         # #     # #       #          #       # # # # #       #       #       #
+    #       #          # #     # #####   #           #####  #  #  # #####   #       #        #####
+   #       #     #     # #     # #       #                # #     # #       #       #             #
+  #       #      #     # #     # #       #          #     # #     # #       #       #       #     #
+ #       #        #####  ####### ####### #######     #####  #     # ####### ####### #######  #####
+ */
