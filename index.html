@@ -30,14 +30,16 @@
 				<button id="hold5" class="rowBtn" onclick="hold('dice5', 'hold5')">Hold</button>
 			</div>
 		</div>
-		<button id="rollButton" onclick="roll()">ROLL!</button>
+		<div>
+			<button id="rollButton" onclick="roll()">ROLL!</button>
+		</div>
 		<div id="scorePanel">
 			<button class="scoreBtn" onclick="scorePoints('3_ofaKind')">3 of a Kind</button>
 			<button class="scoreBtn" onclick="scorePoints('4_ofaKind')">4 of a Kind</button>
 			<button class="scoreBtn" onclick="scorePoints('full_house')">Full House</button>
 			<button class="scoreBtn" onclick="scorePoints('sm_straight')">Sm. Straight</button>
 			<button class="scoreBtn" onclick="scorePoints('lg_straight')">Lg. Straight</button>
-			<button class="scoreBtn" onclick="scorePoints('full_house')">Yahtzee</button>
+			<button class="scoreBtn" onclick="scorePoints('yahtzee')">Yahtzee</button>
 		</div>
 		<div id="scorePanel">
 			<button class="scoreBtn" onclick="scorePoints('ones')">Ones</button>
